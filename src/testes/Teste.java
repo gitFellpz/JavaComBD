@@ -2,48 +2,43 @@ package testes;
 
 import java.sql.SQLException;
 import java.util.Scanner;
-import br.com.fiap.model.Usuarios;
-import br.com.fiap.repository.UsuarioDAO;
+import operacoes.Delet;
+import operacoes.Insercao;
+import operacoes.Update;
 
 public class Teste {
 	
 	public static void main(String[] args) throws SQLException{
-		UsuarioDAO dao = new UsuarioDAO();
+		Insercao insert = new Insercao();
+		Delet dell = new Delet();
+		Update up = new Update();
+		
 		Scanner input = new Scanner(System.in);
-		int id, escolha2;
-		String nome, email, senha;
+		int escolha;
 		
 		do {
 			System.out.print(
 					"\nQual operação você deseja fazer?"
-					+ "\n1 - Inserção de usuários");
+					+ "\n1 - Inserção de usuários"
+					+ "\n2 - Atualizar inf de usuários"
+					+ "\n3 - Deletar usuários"
+					+ "\n0 - Exit");
+			escolha = input.nextInt();
+		}while(escolha == 0);
+		
+		switch(escolha) {
+		case 1:
+			insert.inserirUsuarios();
+			break;
+		case 2:
+			up.atualizarUsuario();
+			break;
+		case 3:
+			dell.deletarUsuario();
+			break;
+		default:
+			System.out.println("\nValor incorreto!");
 		}
-		
-		do {
-			System.out.print("\ninsera seu ID: ");
-			id = input.nextInt();
-			
-			input.nextLine();
-			System.out.print("\ninsera seu Nome: ");
-			nome = input.nextLine();
-			
-			System.out.print("\ninsera seu Email: ");
-			email = input.nextLine();
-			
-			System.out.print("\ninsera seu Senha: ");
-			senha = input.nextLine();
-			
-			System.out.print(
-					"\nDeseja continuar inserindo usuários?"
-					+ "\n1 - Sim"
-					+ "\n2 - Não"
-					+ "\n: ");
-			escolha2 = input.nextInt();
-		} while(escolha2 == 1);
-		
-		Usuarios padrao = new Usuarios(id, nome, email, senha);
-		dao.insert(padrao);
-		System.out.println("Usuário " + nome + " criado!");
 		
 		input.close();
 	}
