@@ -10,7 +10,7 @@ public class ConnectionFactory{
 
 	public Connection conectar() {
 		try {
-			return DriverManager.getConnection(schema, "rm93015", "010104");
+			return DriverManager.getConnection(schema, "RM93015", "010104");
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
