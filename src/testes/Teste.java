@@ -41,7 +41,7 @@ public class Teste {
 			dell.deletarUsuario();
 			break;
 		case 4:
-			
+			view.visualizarUsuarios();
 			break;
 		default:
 			System.out.println("\nValor incorreto!");
