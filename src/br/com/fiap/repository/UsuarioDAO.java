@@ -3,9 +3,11 @@ package br.com.fiap.repository;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
-
+import java.util.ArrayList;
+import java.util.List;
 import br.com.fiap.connection.ConnectionFactory;
 import br.com.fiap.model.Usuarios;
+import java.sql.ResultSet;
 
 public class UsuarioDAO {
 	
@@ -57,5 +59,28 @@ public class UsuarioDAO {
 		
 		stmt.execute();		
 		stmt.close();
+	}
+	
+	public List<Usuarios> selectAll() throws SQLException {
+			
+		List<Usuarios> usuarios = new ArrayList<Usuarios>();
+		String sql = "select * from usuarios";
+		PreparedStatement stmt = conexao.prepareStatement(sql);
+		ResultSet rs = stmt.executeQuery();
+		
+		while(rs.next()) {
+			Usuarios usuario = new Usuarios();
+			usuario.setId(rs.getInt("id"));
+			usuario.setNome(rs.getString("nome"));
+			usuario.setEmail(rs.getString("email"));
+			usuario.setSenha(rs.getString("senha"));
+			usuario.setData(rs.getDate("data"));
+			
+			usuarios.add(usuario);
+		}
+				
+		stmt.close();
+		rs.close();
+		return usuarios;
 	}
 }

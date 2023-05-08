@@ -5,6 +5,7 @@ import java.util.Scanner;
 import operacoes.Delet;
 import operacoes.Insercao;
 import operacoes.Update;
+import operacoes.View;
 
 public class Teste {
 	
@@ -12,6 +13,7 @@ public class Teste {
 		Insercao insert = new Insercao();
 		Delet dell = new Delet();
 		Update up = new Update();
+		View view = new View();
 		
 		Scanner input = new Scanner(System.in);
 		int escolha;
@@ -22,7 +24,9 @@ public class Teste {
 					+ "\n1 - Inserção de usuários"
 					+ "\n2 - Atualizar inf de usuários"
 					+ "\n3 - Deletar usuários"
-					+ "\n0 - Exit");
+					+ "\n4 - Ver usuários"
+					+ "\n0 - Exit"
+					+ "");
 			escolha = input.nextInt();
 		}while(escolha == 0);
 		
@@ -35,6 +39,9 @@ public class Teste {
 			break;
 		case 3:
 			dell.deletarUsuario();
+			break;
+		case 4:
+			
 			break;
 		default:
 			System.out.println("\nValor incorreto!");
