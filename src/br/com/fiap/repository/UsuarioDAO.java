@@ -22,5 +22,14 @@ public class UsuarioDAO {
 		
 		PreparedStatement stmt = conexao.prepareStatement(sql);
 		
+		stmt.setInt(1, usuario.getId());
+		stmt.setString(2, usuario.getNome());
+		stmt.setString(3, usuario.getEmail());
+		stmt.setString(4, usuario.getSenha());
+		stmt.setDate(5, usuario.getData());
+		
+		
+		
+		
 	}
 }
