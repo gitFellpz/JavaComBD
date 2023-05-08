@@ -2,7 +2,7 @@ package br.com.fiap.model;
 
 import java.sql.Date;
 
-//javabeans
+//javabeans - estudar
 public class Usuarios {
 	private int id;
 	private String nome;
@@ -14,12 +14,11 @@ public class Usuarios {
 
 	}
 	
-	public Usuarios(int id, String nome, String email, String senha, Date data) {
+	public Usuarios(int id, String nome, String email, String senha) {
 		this.id = id;
 		this.nome = nome;
 		this.email = email;
 		this.senha = senha;
-		this.data = data;
 	}
 
 	public int getId() {

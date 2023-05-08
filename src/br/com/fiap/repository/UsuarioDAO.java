@@ -28,8 +28,7 @@ public class UsuarioDAO {
 		stmt.setString(4, usuario.getSenha());
 		stmt.setDate(5, usuario.getData());
 		
-		
-		
-		
+		stmt.execute();		
+		stmt.close();
 	}
 }
