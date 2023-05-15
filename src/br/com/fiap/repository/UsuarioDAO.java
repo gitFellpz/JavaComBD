@@ -33,7 +33,7 @@ public class UsuarioDAO {
 		stmt.close();
 	}
 	
-	public void update(Usuarios usuario) throws SQLException {
+	public void update(Usuarios usuario, int id) throws SQLException {
 		//nome da tabela
 		String sql = "update USUARIOS set nome=?, email=?, senha=? where id=?";
 		

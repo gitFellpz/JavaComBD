@@ -26,9 +26,12 @@ public class Update {
 		System.out.print("\nInsira o Senha: ");
 		senha = input.nextLine();
 		
+		System.out.print("\nInsira o ID: ");
+		id = input.nextInt();
+		
 		Usuarios padrao = new Usuarios(nome, email, senha);
 		
-		dao.update(padrao);
+		dao.update(padrao, id);
 		
 		Teste.main(null);
 	}
