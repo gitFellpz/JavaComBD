@@ -6,7 +6,7 @@ import br.com.fiap.repository.UsuarioDAO;
 
 public class Delet {
 
-	public void deletarUsuario() {
+	public void deletarUsuario() throws SQLException {
 		int id, escolha = 1;
 		Scanner input = new Scanner(System.in);
 		UsuarioDAO dao = new UsuarioDAO();

@@ -1,12 +1,12 @@
 package operacoes;
 
 import java.sql.SQLException;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
 import br.com.fiap.model.Usuarios;
 import br.com.fiap.repository.UsuarioDAO;
+import testes.Teste;
 
 public class View {
 
@@ -16,9 +16,17 @@ public class View {
 		
 		List<Usuarios> listaUsuarios = dao.selectAll();
 		
-		for(int i=0; ) listaUsuarios.size(); i++{
-			System.out.println("ola");
+		for(Usuarios usuario : listaUsuarios){
+			System.out.println("\n"
+					+ "-----------");
+			System.out.println("ID: "+usuario.getId());
+			System.out.println("Nome: "+usuario.getNome());
+			System.out.println("Email: "+usuario.getEmail());
+			System.out.println("Senha: "+usuario.getSenha());
+			System.out.println("-----------");
 		}
+		
+		Teste.main(null);
 		
 		input.close();
 	}

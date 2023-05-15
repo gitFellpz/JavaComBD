@@ -13,22 +13,21 @@ public class UsuarioDAO {
 	
 	private Connection conexao;
 	
-	public UsuarioDAO() {
-		this.conexao = new ConnectionFactory().conectar();
+	public UsuarioDAO() throws SQLException {
+		this.conexao = ConnectionFactory.conectar();
 	}
 	
 	//inserir um usuario
 	public void insert(Usuarios usuario) throws SQLException {
 								//nome da tabela
-		String sql = "insert into USUARIOS(id, nome, email, senha, data)values(?,?,?,?,?)";
+		String sql = "insert into USUARIOS (nome, email, senha, data)values(?,?,?,?)";
 		
 		PreparedStatement stmt = conexao.prepareStatement(sql);
 		
-		stmt.setInt(1, usuario.getId());
-		stmt.setString(2, usuario.getNome());
-		stmt.setString(3, usuario.getEmail());
-		stmt.setString(4, usuario.getSenha());
-		stmt.setDate(5, usuario.getData());
+		stmt.setString(1, usuario.getNome());
+		stmt.setString(2, usuario.getEmail());
+		stmt.setString(3, usuario.getSenha());
+		stmt.setDate(4, usuario.getData());
 		
 		stmt.execute();		
 		stmt.close();
@@ -40,10 +39,10 @@ public class UsuarioDAO {
 		
 		PreparedStatement stmt = conexao.prepareStatement(sql);
 		
-		stmt.setInt(1, usuario.getId());
-		stmt.setString(2, usuario.getNome());
-		stmt.setString(3, usuario.getEmail());
-		stmt.setString(4, usuario.getSenha());
+		stmt.setString(1, usuario.getNome());
+		stmt.setString(2, usuario.getEmail());
+		stmt.setString(3, usuario.getSenha());
+		stmt.setInt(4, usuario.getId());
 		
 		stmt.execute();		
 		stmt.close();

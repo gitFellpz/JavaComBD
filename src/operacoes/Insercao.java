@@ -5,20 +5,18 @@ import java.util.Scanner;
 
 import br.com.fiap.model.Usuarios;
 import br.com.fiap.repository.UsuarioDAO;
+import testes.Teste;
 
 public class Insercao {
-	int id, escolha;
+	int escolha;
 	String nome, email, senha;
 	Scanner input = new Scanner(System.in);
-	UsuarioDAO dao = new UsuarioDAO();
+
 	
 	public void inserirUsuarios() throws SQLException {
+		UsuarioDAO dao = new UsuarioDAO();
 		
-		System.out.print("\ninsera seu ID: ");
-		id = input.nextInt();
-		
-		input.nextLine();
-		System.out.print("insera seu Nome: ");
+		System.out.print("\ninsera seu Nome: ");
 		nome = input.nextLine();
 		
 		System.out.print("insera seu Email: ");
@@ -28,7 +26,7 @@ public class Insercao {
 		senha = input.nextLine();
 		
 		try {
-			Usuarios padrao = new Usuarios(id, nome, email, senha);
+			Usuarios padrao = new Usuarios(nome, email, senha);
 			dao.insert(padrao);
 			System.out.println("\nUsuário " + nome + " criado!");
 		}
@@ -49,8 +47,6 @@ public class Insercao {
 			}
 			
 			if(escolha == 1) {
-				System.out.print("\ninsera seu ID: ");
-				id = input.nextInt();
 				
 				input.nextLine();
 				System.out.print("insera seu Nome: ");
@@ -63,7 +59,7 @@ public class Insercao {
 				senha = input.nextLine();
 				
 				try {
-					Usuarios padrao = new Usuarios(id, nome, email, senha);
+					Usuarios padrao = new Usuarios(nome, email, senha);
 					dao.insert(padrao);
 					System.out.println("Usuário " + nome + " criado!");
 				}
@@ -75,7 +71,7 @@ public class Insercao {
 		} while(escolha == 1);
 		
 		
-
+		Teste.main(null);
 	}
 		
 	

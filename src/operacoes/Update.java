@@ -1,42 +1,36 @@
 package operacoes;
 
+import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.util.Scanner;
 
 import br.com.fiap.model.Usuarios;
 import br.com.fiap.repository.UsuarioDAO;
+import testes.Teste;
 
 public class Update {
 	
 	int id, escolha;
 	String nome, email, senha;
 	Scanner input = new Scanner(System.in);
-	UsuarioDAO dao = new UsuarioDAO();
 
-	public void atualizarUsuario() {
-
-		System.out.print("\ninsera seu ID: ");
-		id = input.nextInt();
+	public void atualizarUsuario() throws SQLException {
+		UsuarioDAO dao = new UsuarioDAO();
 		
-		input.nextLine();
-		System.out.print("insera seu Nome: ");
+		System.out.print("\nInsira o nome: ");
 		nome = input.nextLine();
 		
-		System.out.print("insera seu Email: ");
+		System.out.print("\nInsira o Email: ");
 		email = input.nextLine();
 		
-		System.out.print("insera seu Senha: ");
+		System.out.print("\nInsira o Senha: ");
 		senha = input.nextLine();
 		
-		try {
-			Usuarios padrao = new Usuarios(id, nome, email, senha);
-			dao.update(padrao);
-			System.out.println("\nUsuário " + nome + " alterado!");
-		}
-		catch (SQLException e) {
-			e.printStackTrace();
-		}
+		Usuarios padrao = new Usuarios(nome, email, senha);
 		
+		dao.update(padrao);
+		
+		Teste.main(null);
 	}
 
 }

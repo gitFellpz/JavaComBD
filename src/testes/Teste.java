@@ -26,7 +26,7 @@ public class Teste {
 					+ "\n3 - Deletar usuários"
 					+ "\n4 - Ver usuários"
 					+ "\n0 - Exit"
-					+ "");
+					+ "\nEscolha:  ");
 			escolha = input.nextInt();
 		}while(escolha == 0);
 		
