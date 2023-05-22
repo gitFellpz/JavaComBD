@@ -33,16 +33,15 @@ public class UsuarioDAO {
 		stmt.close();
 	}
 	
-	public void update(Usuarios usuario, int id) throws SQLException {
+	public void update(Usuarios usuario) throws SQLException {
 		//nome da tabela
-		String sql = "update USUARIOS set nome=?, email=?, senha=? where id=?";
+		String sql = "update USUARIOS set nome=?, email=?  where id=?";
 		
 		PreparedStatement stmt = conexao.prepareStatement(sql);
 		
 		stmt.setString(1, usuario.getNome());
 		stmt.setString(2, usuario.getEmail());
-		stmt.setString(3, usuario.getSenha());
-		stmt.setInt(4, usuario.getId());
+		stmt.setInt(3, usuario.getId());
 		
 		stmt.execute();		
 		stmt.close();

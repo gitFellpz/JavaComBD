@@ -17,13 +17,14 @@ public class ConnectionFactory{
 
 	public static Connection conectar() throws SQLException{
 		if(conexao == null) {
+			//Otimizar o acesso ao BD
 			final ComboPooledDataSource comboPooledDataSource = new ComboPooledDataSource();
 			comboPooledDataSource.setJdbcUrl(ORACLE);
 			comboPooledDataSource.setUser("rm93167");
 			comboPooledDataSource.setPassword("110804");
 			
 			//Número máximo de conexões
-			comboPooledDataSource.setMaxPoolSize(20);
+			comboPooledDataSource.setMaxPoolSize(10);
 			conexao = comboPooledDataSource;
 		}
 		

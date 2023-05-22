@@ -31,7 +31,7 @@ public class Update {
 		
 		Usuarios padrao = new Usuarios(nome, email, senha);
 		
-		dao.update(padrao, id);
+		dao.update(padrao);
 		
 		Teste.main(null);
 	}
