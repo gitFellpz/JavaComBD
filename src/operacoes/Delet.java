@@ -25,7 +25,7 @@ public class Delet {
 		
 		while(escolha == 1) {
 			System.out.print(
-					"\nDeseja continuar inserindo usuários?"
+					"\nDeseja continuar deletando usuários?"
 					+ "\n1 - Sim"
 					+ "\n2 - Não"
 					+ "\n: ");
